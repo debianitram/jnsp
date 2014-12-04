@@ -8,7 +8,7 @@ if not 'ART' in time.tzname:
     time.tzset()
 
 
-db = DAL(config.connecte_to_db, pool_size=1, check_reserved=['all'])
+db = DAL(config.connect_to_db, pool_size=1, check_reserved=['all'])
 
 response.generic_patterns = ['*'] if request.is_local else []
 
