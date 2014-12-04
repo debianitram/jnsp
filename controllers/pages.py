@@ -6,10 +6,16 @@ def institucional():
 def reglamento_temario():
     response.view = 'pages/reglamento_temario.html'
     q = Pagina.nombre == 'reglamento'
-    items = db(q).select(Noticia.ALL,
+    reglamento = db(q).select(Noticia.ALL,
                          join=Noticia.on(Noticia.pagina_id == Pagina.id),
                          orderby=Noticia.id)
-    return dict(items=items)
+
+    q_ = Pagina.nombre == 'temario'
+    temario = db(q_).select(Noticia.ALL,
+                            join=Noticia.on(Noticia.pagina_id == Pagina.id),
+                            orderby=Noticia.id)
+    
+    return dict(reglamento=reglamento, temario=temario)
 
 
 def programa():

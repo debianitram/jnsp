@@ -2,14 +2,14 @@
 <br>
 <div class='row'>
     <div class='well well-small'>
-        <h2>Reglamento & Temario</h2>
+        <h2>Reglamento</h2>
         <hr class='bs-docs-separator' />
 
         <div class='row-fluid'>
             <div class="span12">
                 
                 <div class="accordion" id="accordion_jobs">
-                    {{for item in items:}}
+                    {{for item in reglamento:}}
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_jobs" href={{="#collapse_%s" % item.id}}>
@@ -31,5 +31,37 @@
 
             </div>
         </div>
+
+
+        <h2>Temario</h2>
+        <hr class='bs-docs-separator' />
+
+        <div class='row-fluid'>
+            <div class="span12">
+                
+                <div class="accordion" id="accordion_jobs">
+                    {{for item in temario:}}
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_jobs" href={{="#collapse_%s" % item.id}}>
+                                    <h4>
+                                        {{=item.titulo}}
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div class='notice'>
+                                        {{=XML(item.cuerpo)}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{pass}}
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </div>
