@@ -8,11 +8,11 @@
         <div class='row-fluid'>
             <div class="span12">
                 
-                <div class="accordion" id="accordion_jobs">
+                <div class="accordion" id="accordion_reglamento">
                     {{for item in reglamento:}}
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_jobs" href={{="#collapse_%s" % item.id}}>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_reglamento" href={{="#collapse_%s" % item.id}}>
                                     <h4>
                                         {{=item.titulo}}
                                     </h4>
@@ -39,11 +39,11 @@
         <div class='row-fluid'>
             <div class="span12">
                 
-                <div class="accordion" id="accordion_jobs">
+                <div class="accordion" id="accordion_temario">
                     {{for item in temario:}}
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_jobs" href={{="#collapse_%s" % item.id}}>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_temario" href={{="#collapse_%s" % item.id}}>
                                     <h4>
                                         {{=item.titulo}}
                                     </h4>
