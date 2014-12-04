@@ -1,0 +1,40 @@
+
+{{for num, noticia in enumerate(noticias):}}
+
+    {{if num == items: break}}
+
+    <div class='row-fluid'>
+        <div class="span12">
+            <div class='page-header'>
+                <h4>{{=noticia.titulo}}
+                    <small>
+                        | <span class='label'>{{=noticia.created_on}}</span>
+                    </small>
+                </h4>
+            </div>
+
+            <p>
+                {{=XML(noticia.cuerpo)}}
+            </p>
+
+            <hr class='bs-docs-separator' />
+        </div>
+    </div>
+{{pass}}
+
+<div class='row-fluid'>
+    <div class='span12'>
+        <div class='pagination pagination-small'>
+            <ul>
+                {{if pagina:}}
+                    {{=LI(A('< Publicaciones recientes',
+                            _href=URL(args=[pagina -1])))}}
+                {{pass}}
+                {{if len(noticias) > items:}}
+                    {{=LI(A('Publicaciones antiguas >',
+                            _href=URL(args=[pagina + 1])))}}
+                {{pass}}
+            </ul>
+        </div>
+    </div>
+</div>
