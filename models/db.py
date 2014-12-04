@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from applications.config_jnsp.modules import config
 import os, time
 # Config timezone
 if not 'ART' in time.tzname:
@@ -7,7 +8,7 @@ if not 'ART' in time.tzname:
     time.tzset()
 
 
-db = DAL('sqlite://storage.sqlite',pool_size=1,check_reserved=['all'])
+db = DAL(config.connecte_to_db, pool_size=1, check_reserved=['all'])
 
 response.generic_patterns = ['*'] if request.is_local else []
 
@@ -18,7 +19,7 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 
 # Customize table auth_user
 auth.settings.extra_fields['auth_user'] = [
-    Field('documento', unique=True, label='Nro Documento', comment=SPAN('sin puntos', _class='label label-info')),
+    Field('documento', label='Nro Documento', comment=SPAN('sin puntos', _class='label label-info')),
     Field('institucion', label='Universidad/Institución'),
     Field('provincia'),
     Field('residencia', length=150, label='Domicilio'),
@@ -29,16 +30,35 @@ auth.settings.extra_fields['auth_user'] = [
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False, migrate=True)
 
+# Recaptcha
+
+from gluon.tools import Recaptcha
+auth.settings.captcha = Recaptcha(request, 
+                                  config.captcha_public_key,
+                                  config.captcha_private_key,
+                                  use_ssl=True,
+                                  error_message='inválido',
+                                  label='Verificar:',
+                                  options="theme:'white', lang:'es'")
+
+
 ## configure email
 mail = auth.settings.mailer
-mail.settings.server = 'logging' or 'smtp.gmail.com:587'
-mail.settings.sender = 'you@gmail.com'
-mail.settings.login = 'username:password'
+mail.settings.server = config.mail_server
+mail.settings.sender = config.mail_sender 
+mail.settings.login = config.mail_login
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
+auth.settings.register_next = URL('default', 'user', args=('profile'))
+auth.settings.create_user_groups = False
+
+auth.messages.reset_password = 'Haz clic en el link http://' + \
+    request.env.http_host + \
+    URL(r=request,c='default',f='user',args=['reset_password']) + \
+    '/%(key)s para restablecer tu contraseña'
 
 
 ### Definición de tablas.
