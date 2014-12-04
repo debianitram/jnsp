@@ -36,7 +36,7 @@ class CKEditor(object):
         self.settings.browse_filter = {}
         self.settings.file_length_max = 10485760    # 10 MB
         self.settings.file_length_min = 0           # no minimum
-        self.settings.spellcheck_while_typing = True
+        self.settings.spellcheck_while_typing = False
         
         self.settings.download_url = download_url
         current.plugin_ckeditor = self
@@ -156,7 +156,6 @@ class CKEditor(object):
                         contentsCss: %(contents_css)s,
                         filebrowserUploadUrl: '%(upload_url)s',
                         filebrowserBrowseUrl: '%(browse_url)s',
-                        /*
                         toolbar: [
                             {name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
                             {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-', 'SpellChecker', 'Scayt']},
@@ -167,7 +166,7 @@ class CKEditor(object):
                             {name: 'styles', items: ['Format', 'Font', 'FontSize']},
                             {name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']},
                             {name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
-                        ],*/
+                        ],
                         scayt_autoStartup: %(scayt)s,
                     }
                 }
