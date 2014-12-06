@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class='span4'>
         <h5 class='alert alert-notification'>
@@ -34,8 +35,7 @@
                 </tr>
                 <tr>
                     <td>{{=I(_class='icon-book')}}</td>
-                    <td>(+54) 3834 - 4438794<br>
-                        (+54) 3834 - 4431185</td>
+                    <td>(+54) 3834 - 4438794</td>
                 </tr>
                 <tr>
                     <td>{{=I(_class='icon-envelope')}}</td>

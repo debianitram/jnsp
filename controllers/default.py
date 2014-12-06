@@ -10,11 +10,14 @@ def index():
     items = 10
     limitby = (pagina * items, (pagina + 1) * items + 1)
 
-    query = Noticia.id > 0
-    query &= Noticia.is_active == True
-    query &= Noticia.publicado == True
+    qblog = Pagina.nombre == 'novedades'
+    join = Noticia.on(Noticia.pagina_id == Pagina.id)
 
-    total_noticias = db(query).select(orderby=~Noticia.modified_on, limitby=limitby)
+    total_noticias = db(qblog).select(Noticia.ALL, 
+                                      join=join,
+                                      orderby=~Noticia.modified_on,
+                                      limitby=limitby).exclude(lambda r: r.publicado != False)
+                                      
     return dict(noticias=total_noticias, pagina=pagina, items=items)
 
 
