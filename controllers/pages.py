@@ -14,8 +14,13 @@ def reglamento_temario():
     temario = db(q_).select(Noticia.ALL,
                             join=Noticia.on(Noticia.pagina_id == Pagina.id),
                             orderby=Noticia.id)
+
+    q__ = Pagina.nombre == 'normas'
+    normas = db(q__).select(Noticia.ALL,
+                            join=Noticia.on(Noticia.pagina_id == Pagina.id),
+                            orderby=Noticia.id)
     
-    return dict(reglamento=reglamento, temario=temario)
+    return dict(reglamento=reglamento, temario=temario, normas=normas)
 
 
 def programa():

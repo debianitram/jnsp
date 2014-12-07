@@ -2,7 +2,8 @@
 <br>
 <div class='row'>
     <div class='well well-small'>
-        <h2>Reglamento</h2>
+        
+        <h2>REGLAMENTO</h2>
         <hr class='bs-docs-separator' />
 
         <div class='row-fluid'>
@@ -33,7 +34,7 @@
         </div>
 
 
-        <h2>Temario</h2>
+        <h2>TEMARIO</h2>
         <hr class='bs-docs-separator' />
 
         <div class='row-fluid'>
@@ -44,6 +45,37 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_temario" href={{="#collapse_%s" % item.id}}>
+                                    <h4>
+                                        {{=item.titulo}}
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div class='notice'>
+                                        {{=XML(item.cuerpo)}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{pass}}
+                </div>
+
+            </div>
+        </div>
+
+
+        <h2>NORMAS DE PROCEDIMIENTO DE LAS XI JORNADAS NACIONALES DEL SECTOR PÚBLICO</h2>
+        <hr class='bs-docs-separator' />
+
+        <div class='row-fluid'>
+            <div class="span12">
+                
+                <div class="accordion" id="accordion_normas">
+                    {{for item in normas:}}
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_normas" href={{="#collapse_%s" % item.id}}>
                                     <h4>
                                         {{=item.titulo}}
                                     </h4>

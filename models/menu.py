@@ -25,7 +25,7 @@ response.menu = [
      False,
      URL('default', 'index'),
      []),
-    (SPAN(I(_class='icon-leaf icon-white'), STRONG(' Institucional')),
+    (SPAN(I(_class='icon-leaf icon-white'), STRONG(' Sedes')),
      False,
      URL('pages', 'institucional')),
     (SPAN(I(_class='icon-certificate icon-white'), STRONG(' Reglamento & Temario')),

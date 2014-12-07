@@ -21,6 +21,39 @@ def index():
     return dict(noticias=total_noticias, pagina=pagina, items=items)
 
 
+def form_inscripcion():
+    from modal_FieldsReference import modalFieldReference as modal
+
+    modal_profesion = modal(Inscripcion.profesion,
+                            btn_title='Agregar profesion',
+                            btn_name='agregar',
+                            modal_title='Nueva Profesión',
+                            modal_key='inscripcion_profesion'
+                            )
+
+    modal_transporte = modal(Inscripcion.transporte,
+                             btn_title='Agregar transporte',
+                             btn_name='agregar',
+                             modal_title='Nuevo Transporte',
+                             modal_key='inscripcion_transporte')
+
+    Inscripcion.profesion.comment = modal_profesion.btn()
+    Inscripcion.transporte.comment = modal_transporte.btn()
+
+    windows = {'profesion': modal_profesion.modal(),
+               'transporte': modal_transporte.modal()}
+
+    form = SQLFORM(Inscripcion)
+
+    if form.accepts(request.vars, session):
+        response.flash = 'Inscripción satisfactoria!'
+
+    elif form.errors:
+        response.flash = 'Controle el formulario'
+
+    return dict(form=form, windows=windows)
+
+
 def user():
     """
     exposes:

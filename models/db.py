@@ -18,15 +18,6 @@ auth = Auth(db)
 crud, service, plugins = Crud(db), Service(), PluginManager()
 
 # Customize table auth_user
-auth.settings.extra_fields['auth_user'] = [
-    Field('documento', label='Nro Documento', comment=SPAN('sin puntos', _class='label label-info')),
-    Field('institucion', label='Universidad/Institución'),
-    Field('provincia'),
-    Field('residencia', length=150, label='Domicilio'),
-    Field('codigo_postal'),
-    Field('telefono'),
-    Field('modalidad', 'list:string', default='Asistente', writable=False, readable=False)
-    ]
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False, migrate=True)
 
@@ -52,7 +43,7 @@ mail.settings.login = config.mail_login
 auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
-auth.settings.register_next = URL('default', 'user', args=('profile'))
+auth.settings.actions_disabled = ('register', 'request_reset_password')
 auth.settings.create_user_groups = False
 
 auth.messages.reset_password = 'Haz clic en el link http://' + \
@@ -91,16 +82,24 @@ Catering = db.define_table('catering',
             auth.signature,
             format='%(nombre)s')
 
-Usuario_info = db.define_table('usuario_info',
-            Field('usuario_id', db.auth_user, default=auth.user_id),
-            Field('factura_razonsocial', length=150, label='Razón Social'),
-            Field('factura_cuit', length=20, label='CUIT'),
-            Field('factura_domicilio', length=150, label='Domicilio'),
-            Field('factura_iva', SituacionIVA),
-            Field('fecha_arribo', 'date', label='Fecha de arribo'),
-            Field('acompaniante', 'integer', label='Cantidad de acompañantes'),
-            Field('catering', Catering),
-            Field('observacion', 'text'))
+Profesion = db.define_table('profesion', Field('nombre'), format='%(nombre)s')
+Transporte = db.define_table('transporte', Field('nombre'), format='%(nombre)s')
+
+
+Inscripcion = db.define_table('inscripcion',
+            Field('apellido', length=100),
+            Field('nombre', length=100),
+            Field('matricula', length=50),
+            Field('consejo_origen', length=100),
+            Field('profesion', 'reference profesion'),
+            Field('dni', length=25),
+            Field('tipo_asistencia', 'list:string'),
+            Field('email'),
+            Field('fecha_nacimiento', 'date'),
+            Field('telefono'),
+            Field('area_inscripcion', 'list:string'),
+            Field('transporte', 'reference transporte'),
+            Field('info_adicional', 'text'))
 
 Pagina = db.define_table('pagina',
             Field('nombre'),
