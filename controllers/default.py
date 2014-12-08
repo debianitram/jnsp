@@ -43,13 +43,7 @@ def form_inscripcion():
     windows = {'profesion': modal_profesion.modal(),
                'transporte': modal_transporte.modal()}
 
-    form = SQLFORM(Inscripcion)
-
-    if form.accepts(request.vars, session):
-        response.flash = 'Inscripción satisfactoria!'
-
-    elif form.errors:
-        response.flash = 'Controle el formulario'
+    form = crud.create(Inscripcion)
 
     return dict(form=form, windows=windows)
 

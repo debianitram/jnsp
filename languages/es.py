@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 {
 '!=': '!=',
 '!langcode!': 'es',
@@ -168,6 +168,7 @@
 'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'introduzca un entero entre %(min)g y %(max)g',
 'enter date and time as %(format)s': 'introduzca fecha y hora como %(format)s',
+'Enviar': 'Enviar',
 'Error logs for "%(app)s"': 'Bitácora de errores en "%(app)s"',
 'errors': 'errores',
 'Errors': 'Errores',
