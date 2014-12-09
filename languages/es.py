@@ -1,4 +1,4 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 {
 '!=': '!=',
 '!langcode!': 'es',
@@ -286,6 +286,7 @@
 'No puede estar vacío': 'No puede estar vacío',
 'No records found': 'No se han encontrado registros',
 'Nombre': 'Nombre',
+'None': 'None',
 'Not authorized': 'No autorizado',
 'not in': 'no en',
 'Object or table name': 'Nombre del objeto o tabla',

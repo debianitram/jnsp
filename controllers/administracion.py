@@ -12,7 +12,11 @@ def novedades():
         
     fields = [Noticia.titulo, Noticia.created_on]
     
-    formgrid = SQLFORM.grid(query)
+    formgrid = SQLFORM.grid(query,
+                            csv=False,
+                            fields=fields,
+                            user_signature=True)
+    
     return dict(formgrid=formgrid)
 
 

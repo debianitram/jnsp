@@ -41,3 +41,9 @@ response.menu = [
      False,
      URL('pages', 'puntos_interes')),
 ]
+
+if auth.user:
+    response.menu.append(
+        (SPAN(I(_class='icon-pencil icon-white'), STRONG(' Redactar')),
+         False,
+         URL(c='administracion', f='novedades', user_signature=True)))
