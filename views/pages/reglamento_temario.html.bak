@@ -56,11 +56,6 @@
                             <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
                                 <div class="accordion-inner">
                                     <div class='notice'>
-                                        {{if auth.has_membership('administrador'):}}
-                                             {{=A(I(_class='icon-pencil'), ' Editar', 
-                                                  _href=URL(c='administracion', f='edit_rt', args=(item.id), user_signature=True))}}
-                                             <hr class='bs-docs-separator' />
-                                        {{pass}}
                                         {{=XML(item.cuerpo)}}
                                     </div>
                                 </div>
@@ -92,11 +87,6 @@
                             <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
                                 <div class="accordion-inner">
                                     <div class='notice'>
-                                        {{if auth.has_membership('administrador'):}}
-                                             {{=A(I(_class='icon-pencil'), ' Editar', 
-                                                  _href=URL(c='administracion', f='edit_rt', args=(item.id), user_signature=True))}}
-                                             <hr class='bs-docs-separator' />
-                                        {{pass}}
                                         {{=XML(item.cuerpo)}}
                                     </div>
                                 </div>

@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<br>
+<div class='well well-small'>
+    <h3>Edición</h3>
+    {{=form.custom.begin}}
+        <h4>Título: <span style='color:red'>{{=form.custom.dspval.titulo}}</span></h4>
+        <hr class='bs-docs-separator' />
+        {{=form.custom.widget.cuerpo}}
+        <div class=''>
+            {{=form.custom.submit}}
+        </div>
+    {{=form.custom.end}}
+</div>

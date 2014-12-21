@@ -40,7 +40,6 @@ def edit_rt():
                        request.args(0),
                        deletable=False,
                        next=URL(c='pages', f='reglamento_temario'),
-                       message='Registro actualizado',
                        fields=fields)
 
     return dict(form=form)

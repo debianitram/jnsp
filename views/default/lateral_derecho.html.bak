@@ -14,7 +14,7 @@
     </div>
     
     <div class='span4'>
-        <img src="{{=URL('static', 'images/publicidad/cpcec.jpg')}}" class='img-publicidad'/>
+        <img src="{{=URL('static', 'images/publicidad/facpce.jpg')}}" class='img-publicidad'/>
     </div>
 </div>
 
