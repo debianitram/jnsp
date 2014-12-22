@@ -1,9 +1,19 @@
 {{extend 'layout.html'}}
 <br>
+
 <div class='row'>
     <div class='well well-small'>
-        
-        <h3>REGLAMENTO</h3>
+
+        <div class='row-fluid'>
+            <div class='pull-left'>
+                <h4>REGLAMENTO</h4>
+            </div>
+            <div class='pull-right'>
+                {{=A(I(_class='icon-chevron-down'), ' Descargar',
+                     _href=URL(r=request, c='static', f='pdfs/reglamento.pdf'),
+                     _class='btn btn-small')}}
+            </div>
+        </div>
         <hr class='bs-docs-separator' />
 
         <div class='row-fluid'>
@@ -14,7 +24,7 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_reglamento" href={{="#collapse_%s" % item.id}}>
-                                    <h4>{{=item.titulo}}</h4>
+                                    <h5>{{=item.titulo}}</h5>
                                 </a>
                             </div>
                             <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
@@ -37,7 +47,16 @@
         </div>
 
 
-        <h3>TEMARIO</h3>
+        <div class='row-fluid'>
+            <div class='pull-left'>
+                <h4>TEMARIO</h4>
+            </div>
+            <div class='pull-right'>
+                {{=A(I(_class='icon-chevron-down'), ' Descargar',
+                     _href=URL(r=request, c='static', f='pdfs/temario.pdf'),
+                     _class='btn btn-small')}}
+            </div>
+        </div>
         <hr class='bs-docs-separator' />
 
         <div class='row-fluid'>
@@ -48,9 +67,7 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_temario" href={{="#collapse_%s" % item.id}}>
-                                    <h4>
-                                        {{=item.titulo}}
-                                    </h4>
+                                    <h5>{{=item.titulo}}</h5>
                                 </a>
                             </div>
                             <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
@@ -73,7 +90,11 @@
         </div>
 
 
-        <h3>NORMAS DE PROCEDIMIENTO</h3>
+        <div class='row-fluid'>
+            <div class='pull-left'>
+                <h4>NORMAS DE PROCEDIMIENTOS</h4>
+            </div>
+        </div>
         <hr class='bs-docs-separator' />
 
         <div class='row-fluid'>
@@ -84,9 +105,7 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_normas" href={{="#collapse_%s" % item.id}}>
-                                    <h4>
-                                        {{=item.titulo}}
-                                    </h4>
+                                    <h5>{{=item.titulo}}</h5>
                                 </a>
                             </div>
                             <div id={{="collapse_%s" % item.id}} class="accordion-body collapse">
