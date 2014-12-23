@@ -43,7 +43,13 @@ response.menu = [
 ]
 
 if auth.user:
-    response.menu.append(
-        (SPAN(I(_class='icon-pencil icon-white'), STRONG(' Redactar')),
+    _ = (SPAN(I(_class='icon-wrench icon-white'), STRONG(' Admin')),
          False,
-         URL(c='administracion', f='novedades', user_signature=True)))
+         URL(),
+         [(SPAN(I(_class='icon-pencil'), STRONG(' Redactar')),
+            False,
+            URL(c='administracion', f='novedades', user_signature=True)),
+          (SPAN(I(_class='icon-user'), STRONG(' Inscriptos')), 
+            False,
+            URL(c='administracion', f='list_inscriptos', user_signature=True))])
+    response.menu.append(_)

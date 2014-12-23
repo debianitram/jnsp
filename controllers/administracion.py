@@ -20,9 +20,26 @@ def novedades():
     return dict(formgrid=formgrid)
 
 
-def lista_inscriptos():
+@auth.requires_login()
+def list_inscriptos():
     # Definir los campos para los inscriptos a la jornada
-    return dict()
+    fields = [Inscripcion.apellido,
+             Inscripcion.nombre,
+             Inscripcion.matricula,
+             Inscripcion.email,
+             Inscripcion.matricula]
+
+    grid = SQLFORM.grid(Inscripcion,
+                        fields=fields,
+                        maxtextlength=50,
+                        editable=False,
+                        selectable=False,
+                        csv=True,
+                        deletable=False,
+                        user_signature=True
+                        )
+
+    return dict(grid=grid)
 
 
 def contact_mails():
