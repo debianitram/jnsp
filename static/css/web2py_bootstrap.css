@@ -63,10 +63,10 @@ ul#navbar>.auth_navbar{
 /* form errors message box customization */
 div.error_wrapper{margin-bottom:9px;}
 div.error_wrapper .error{
-  border-radius: 4px;
+  /* border-radius: 4px; */
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
+  /* -webkit-border-radius: 4px; */
 }
 /* below rules are only for formstyle = bootstrap
 trying to make errors look like bootstrap ones */
