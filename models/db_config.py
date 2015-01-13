@@ -4,9 +4,9 @@ Inscripcion.tipo_asistencia.requires = IS_IN_SET(('Profesional +32 años',
                                                   'Joven Profesional hasta 32 años',
                                                   'Acompañante'))
 
-Inscripcion.area_inscripcion.requires = IS_IN_SET(('Área I: Contabilidad',
-                                                   'Área II: Administración',
-                                                   'Área III: Economía'))
+Inscripcion.area_inscripcion.requires = IS_IN_SET(('Área I: Contabilidad Gubernamental',
+                                                   'Área II: Administración de los Organismos Públicos',
+                                                   'Área III: Economía del Sector Público'))
 
 # Plugins CKEditor
 from plugin_ckeditor import CKEditor

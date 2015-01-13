@@ -37,8 +37,8 @@ def form_inscripcion():
                              modal_title='Nuevo Transporte',
                              modal_key='inscripcion_transporte')
 
-    Inscripcion.profesion.comment = modal_profesion.btn()
-    Inscripcion.transporte.comment = modal_transporte.btn()
+    # Inscripcion.profesion.comment = modal_profesion.btn()
+    # Inscripcion.transporte.comment = modal_transporte.btn()
 
     windows = {'profesion': modal_profesion.modal(),
                'transporte': modal_transporte.modal()}

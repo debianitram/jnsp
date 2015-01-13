@@ -25,21 +25,18 @@ response.menu = [
      False,
      URL('default', 'index'),
      []),
-    #(SPAN(I(_class='icon-leaf icon-white'), STRONG(' Sedes')),
-    # False,
-    # URL('pages', 'institucional')),
     (SPAN(I(_class='icon-certificate icon-white'), STRONG(' Reglamento & Temario')),
      False,
      URL('pages', 'reglamento_temario')),
     (SPAN(I(_class='icon-calendar icon-white'), STRONG(' Programa')),
      False,
      URL('pages', 'programa')),
-    # (SPAN(I(_class='icon-globe'), STRONG(' Blog')),
-    #  False,
-    #  URL('blog', 'index')),
     (SPAN(I(_class='icon-briefcase icon-white'), STRONG(' Puntos de Interes')),
      False,
      URL('pages', 'puntos_interes')),
+    (SPAN(I(_class='icon-pencil icon-white'), STRONG(' Inscripción', _style='color:lightcoral')),
+     False,
+     URL('default', 'form_inscripcion'))
 ]
 
 if auth.user:

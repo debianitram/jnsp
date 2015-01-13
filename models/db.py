@@ -22,7 +22,7 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 auth.define_tables(username=False, signature=False, migrate=True)
 
 # Recaptcha
-
+"""
 from gluon.tools import Recaptcha
 auth.settings.captcha = Recaptcha(request, 
                                   config.captcha_public_key,
@@ -31,7 +31,7 @@ auth.settings.captcha = Recaptcha(request,
                                   error_message='inválido',
                                   label='Verificar:',
                                   options="theme:'white', lang:'es'")
-
+"""
 
 ## configure email
 mail = auth.settings.mailer
@@ -99,7 +99,7 @@ Inscripcion = db.define_table('inscripcion',
             Field('telefono'),
             Field('area_inscripcion', 'list:string'),
             Field('transporte', 'reference transporte'),
-            Field('info_adicional', 'text'))
+            Field('info_adicional', 'text', label='Información adicional / Consultas'))
 
 Pagina = db.define_table('pagina',
             Field('nombre'),
