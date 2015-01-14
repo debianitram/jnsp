@@ -114,3 +114,13 @@ Noticia = db.define_table('noticia',
             Field('publicado', 'boolean', default=False),
             auth.signature,
             format='Título: %(titulo)s')
+
+Hoteles = db.define_table('hotel',
+            Field('nombre'),
+            Field('categoria', 'integer', default=0),
+            Field('direccion'),
+            Field('telefono'),
+            Field('mail', requires=IS_EMPTY_OR(IS_EMAIL())),
+            Field('web'),
+            auth.signature,
+            format='%(nombre)s')

@@ -30,4 +30,8 @@ def programa():
 
 def puntos_interes():
     response.view = 'pages/puntos_interes.html'
-    return dict()
+    
+    query = (Hoteles.id > 0) & (Hoteles.is_active == True)
+    hoteles = db(query).select(orderby=Hoteles.nombre)
+    
+    return dict(hoteles=hoteles)

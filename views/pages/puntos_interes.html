@@ -13,28 +13,44 @@
                 </div>
             </center>
             <br>
+
             <hr class='bs-docs-separator' />
-            <!--
-            <h3>Lista de Hoteles</h3>
+
+            <h2>Listado de Hoteles</h2>
+            <hr class='bs-docs-separator' />
+
             <table class='table table-condensed'>
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Información de Contacto</th>
-                        <th>Categoria</th>
-                        <th>Precios</th>
+                        <th>Categoría</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Correo electrónico</th>
+                        <th>Sitio Web</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Hotel Ancasti</td>
-                        <td>Información del hotel</td>
-                        <td>categoria</td>
-                        <td>$2000</td>
-                    </tr>
+                    {{for hotel in hoteles:}}
+                        <tr>
+                            <td><strong>{{=hotel.nombre}}</strong></td>
+                            <td>{{=TABLE(TBODY(TR(*[TD(I(_class='icon-star')) for i in range(hotel.categoria)])))}}
+                            </td>
+                            <td>{{=hotel.direccion or '-'}}</td>
+                            <td>{{=hotel.telefono or '-'}}</td>
+                            <td>{{=hotel.mail or '-'}}</td>
+                            <td>{{if hotel.web:}}
+                                    <a href='{{=hotel.web}}'>
+                                        <img src='{{=URL("static", "images/webicon.png")}}' />
+                                    </a>
+                                {{pass}}
+                            </td>
+                        </tr>
+                    {{pass}}
                 </tbody>
             </table>
-            -->
+
+
         </div>
     </div>
 </div>
