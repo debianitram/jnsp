@@ -40,7 +40,7 @@
                             <td style='vertical-align:middle'>{{=hotel.telefono or '-'}}</td>
                             <td style='vertical-align:middle'>{{=hotel.mail or '-'}}</td>
                             <td style='vertical-align:middle'>{{if hotel.web:}}
-                                    <a href='{{=hotel.web}}'>
+                                    <a href='{{=hotel.web}}' target='_blank'>
                                         <img src='{{=URL("static", "images/webicon.png")}}' />
                                     </a>
                                 {{pass}}
