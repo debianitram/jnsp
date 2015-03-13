@@ -1,4 +1,4 @@
-@auth.requires_login()
+@auth.requires_membership('administrador')
 def novedades():
     page_novedades = db(Pagina.nombre == 'novedades').select(Pagina.id).first().id
     query = Noticia.pagina_id == page_novedades
@@ -20,22 +20,23 @@ def novedades():
     return dict(formgrid=formgrid)
 
 
-@auth.requires_login()
+@auth.requires_membership('administrador')
 def list_inscriptos():
     # Definir los campos para los inscriptos a la jornada
     fields = [Inscripcion.apellido,
              Inscripcion.nombre,
              Inscripcion.matricula,
-             Inscripcion.email,
-             Inscripcion.matricula]
+             Inscripcion.email]
+    
+    query = Inscripcion.is_active == True
 
-    grid = SQLFORM.grid(Inscripcion,
+    grid = SQLFORM.grid(query,
                         fields=fields,
                         maxtextlength=50,
                         editable=False,
                         selectable=False,
                         csv=True,
-                        deletable=False,
+                        ondelete=hide_record,
                         user_signature=True
                         )
 
@@ -47,7 +48,7 @@ def contact_mails():
     # Responder mensajes desde el correo de la jornada.
     return dict()
 
-@auth.requires_signature()
+@auth.requires_membership('administrador')
 def edit_rt():
     # Edicion del reglamento y temario
     fields = ['titulo', 'cuerpo']

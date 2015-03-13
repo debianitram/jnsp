@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 {
 '!langcode!': 'ru',
 '!langname!': 'Русский',
@@ -22,6 +22,7 @@
 '1 second ago': '1 секунду тому',
 '1 week ago': '1 неделю тому',
 '1 year ago': '1 год тому',
+'@markmin\x01An error occured, please [[reload %s]] the page': 'An error occured, please [[reload %s]] the page',
 'About': 'About',
 'Access Control': 'Access Control',
 'Administrative Interface': 'Administrative Interface',
@@ -71,6 +72,7 @@
 'Edit current record': 'Редактировать текущую запись',
 'Edit Profile': 'Редактировать профиль',
 'Email and SMS': 'Email and SMS',
+'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
 'Errors': 'Errors',
 'export as csv file': 'экспорт в  csv-файл',
@@ -100,6 +102,7 @@
 'Layout Plugins': 'Layout Plugins',
 'Layouts': 'Layouts',
 'Live Chat': 'Live Chat',
+'Log In': 'Log In',
 'Logged in': 'Вход выполнен',
 'Logged out': 'Выход выполнен',
 'login': 'вход',
@@ -142,6 +145,7 @@
 'Ram Cleared': 'Ram Cleared',
 'Recipes': 'Recipes',
 'Record': 'Record',
+'Record Created': 'Record Created',
 'record does not exist': 'запись не найдена',
 'Record ID': 'ID записи',
 'Record id': 'id записи',
@@ -170,6 +174,7 @@
 'The output of the file is a dictionary that was rendered by the view %s': 'The output of the file is a dictionary that was rendered by the view %s',
 'The Views': 'The Views',
 'This App': 'This App',
+'This email already has an account': 'This email already has an account',
 'Time in Cache (h:m:s)': 'Time in Cache (h:m:s)',
 'Timestamp': 'Отметка времени',
 'Twitter': 'Twitter',
@@ -189,7 +194,9 @@
 'Welcome to web2py': 'Добро пожаловать в web2py',
 'Welcome to web2py!': 'Welcome to web2py!',
 'Which called the function %s located in the file %s': 'Which called the function %s located in the file %s',
+'Working...': 'Working...',
 'You are successfully running web2py': 'You are successfully running web2py',
 'You can modify this application and adapt it to your needs': 'You can modify this application and adapt it to your needs',
 'You visited the url %s': 'You visited the url %s',
+'Отправить': 'Отправить',
 }

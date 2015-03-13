@@ -55,10 +55,12 @@ auth.messages.reset_password = 'Haz clic en el link http://' + \
 ### Definición de tablas.
 Trabajo = db.define_table('trabajo',
             Field('titulo', length=50, label='Título', requires=IS_NOT_EMPTY()),
+            Field('autor', length=250, label='Autor', requires=IS_NOT_EMPTY()),
             Field('archivo', 'upload', label='Seleccionar un archivo'),
             Field('descripcion', 'text', label='Descripción'),
-            auth.signature,
-            format='Título: %(titulo)s, Autor: %(created_by)s')
+            format='Título: %(titulo)s, Autor: %(autor)s',
+            migrate=True,
+            fake_migrate=True)
 
 Evaluacion = db.define_table('evaluacion',
             Field('evaluador_id', db.auth_user, default=auth.user_id),
@@ -99,7 +101,9 @@ Inscripcion = db.define_table('inscripcion',
             Field('telefono'),
             Field('area_inscripcion', 'list:string'),
             Field('transporte', 'reference transporte'),
-            Field('info_adicional', 'text', label='Información adicional / Consultas'))
+            Field('info_adicional', 'text', label='Información adicional / Consultas'),
+            Field('is_active', default=True, writable=False, readable=False),
+            migrate=True)
 
 Pagina = db.define_table('pagina',
             Field('nombre'),

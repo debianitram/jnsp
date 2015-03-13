@@ -17,10 +17,11 @@ def index():
                                       join=join,
                                       orderby=~Noticia.modified_on,
                                       limitby=limitby).exclude(lambda r: r.publicado != False)
-                                      
+
     return dict(noticias=total_noticias, pagina=pagina, items=items)
 
 
+# @auth.requires_login()
 def form_inscripcion():
     from modal_FieldsReference import modalFieldReference as modal
 
@@ -46,6 +47,16 @@ def form_inscripcion():
     form = crud.create(Inscripcion)
 
     return dict(form=form, windows=windows)
+
+
+def enviar_trabajo():
+    form = SQLFORM(Trabajo)
+    if form.accepts(request, session):
+        session.flash = 'Trabajo enviado'
+    elif form.errors:
+        session.flash = 'Controle el formulario'
+        
+    return dict(form=form)
 
 
 def user():
