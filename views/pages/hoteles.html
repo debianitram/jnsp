@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+
+<div class='row'>
+    <div class='well well-small'>
+        <div class='row-fluid'>
+            <h2>Listado de Hoteles</h2>
+            <hr>
+            <table class='table table-condensed'>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Correo electrónico</th>
+                        <th>Sitio Web</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for hotel in hoteles:}}
+                        <tr>
+                            <td style='vertical-align:middle'><strong>{{=hotel.nombre}}</strong></td>
+                            <td style='vertical-align:middle'>{{=TABLE(TBODY(TR(*[TD(I(_class='icon-star'), _style='border:none') for i in range(hotel.categoria)])))}}
+                            </td>
+                            <td style='vertical-align:middle'>{{=hotel.direccion or '-'}}</td>
+                            <td style='vertical-align:middle'>{{=hotel.telefono or '-'}}</td>
+                            <td style='vertical-align:middle'>{{=hotel.mail or '-'}}</td>
+                            <td style='vertical-align:middle'>{{if hotel.web:}}
+                                    <a href='{{=hotel.web}}' target='_blank'>
+                                        <img src='{{=URL("static", "images/webicon.png")}}' />
+                                    </a>
+                                {{pass}}
+                            </td>
+                        </tr>
+                    {{pass}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -43,3 +43,13 @@ def puntos_interes():
     hoteles = db(query).select(orderby=Hoteles.nombre)
     
     return dict(hoteles=hoteles)
+
+
+def hoteles():
+    query = (Hoteles.id > 0) & (Hoteles.is_active == True)
+    hoteles = db(query).select(orderby=Hoteles.nombre)
+    return dict(hoteles=hoteles)
+
+
+def restaurant():
+    return dict()

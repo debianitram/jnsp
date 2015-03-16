@@ -57,13 +57,13 @@ if auth.user:
 
 
 response.submenu = [
-    (SPAN(I(_class='icon-briefcase'), STRONG(' Hospedajes')), 
+    (SPAN(I(_class='icon-briefcase'), STRONG(' Hoteles')), 
      False,
-     URL('pages', 'puntos_interes'),
+     URL('pages', 'hoteles'),
      []),
     (SPAN(I(_class='icon-glass'), STRONG(' Restaurant')),
      False,
-     URL('pages', 'puntos_interes')),
+     URL('pages', 'restaurant')),
     (SPAN(I(_class='icon-camera'), STRONG(' Puntos de Interes')),
      False,
      URL('pages', 'puntos_interes')),
