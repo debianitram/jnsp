@@ -26,7 +26,16 @@ def list_inscriptos():
     fields = [Inscripcion.apellido,
              Inscripcion.nombre,
              Inscripcion.matricula,
-             Inscripcion.email]
+             Inscripcion.consejo_origen,
+             Inscripcion.profesion,
+             Inscripcion.dni,
+             Inscripcion.tipo_asistencia,
+             Inscripcion.fecha_nacimiento,
+             Inscripcion.telefono,
+             Inscripcion.area_inscripcion,
+             Inscripcion.transporte,
+             Inscripcion.info_adicional
+             ]
     
     query = Inscripcion.is_active == True
 
@@ -35,6 +44,7 @@ def list_inscriptos():
                         maxtextlength=50,
                         editable=False,
                         selectable=False,
+                        paginate=100,
                         csv=True,
                         ondelete=hide_record,
                         user_signature=True
@@ -62,3 +72,20 @@ def edit_rt():
                        fields=fields)
 
     return dict(form=form)
+
+
+@auth.requires_membership('administrador')
+def list_trabajos():
+
+    grid = SQLFORM.grid(Trabajo,
+                        maxtextlength=50,
+                        editable=False,
+                        create=False,
+                        selectable=False,
+                        paginate=100,
+                        csv=True,
+                        ondelete=hide_record,
+                        user_signature=True
+                        )
+
+    return dict(grid=grid)

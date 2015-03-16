@@ -54,9 +54,9 @@ auth.messages.reset_password = 'Haz clic en el link http://' + \
 
 ### Definición de tablas.
 Trabajo = db.define_table('trabajo',
-            Field('titulo', length=50, label='Título', requires=IS_NOT_EMPTY()),
-            Field('autor', length=250, label='Autor', requires=IS_NOT_EMPTY()),
-            Field('archivo', 'upload', label='Seleccionar un archivo'),
+            Field('titulo', length=50, label='Título', comment=SPAN('obligatorio', _style='color:red'), requires=IS_NOT_EMPTY()),
+            Field('autor', length=250, label='Autor/es', comment=SPAN('obligatorio', _style='color:red'), requires=IS_NOT_EMPTY()),
+            Field('archivo', 'upload', label='Seleccionar un archivo', comment=SPAN('obligatorio', _style='color:red'), requires=IS_LENGTH(15728640, 1024)),
             Field('descripcion', 'text', label='Descripción'),
             format='Título: %(titulo)s, Autor: %(autor)s',
             migrate=True,

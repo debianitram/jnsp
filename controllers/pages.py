@@ -28,6 +28,14 @@ def programa():
     return dict()
 
 
+def faq():
+    q = Pagina.nombre == 'faq'
+    faq = db(q).select(Noticia.ALL,
+                         join=Noticia.on(Noticia.pagina_id == Pagina.id),
+                         orderby=Noticia.id)
+    return dict(faq=faq)
+
+
 def puntos_interes():
     response.view = 'pages/puntos_interes.html'
     

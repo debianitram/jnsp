@@ -9,6 +9,11 @@ Inscripcion.area_inscripcion.requires = IS_IN_SET(('Área I: Contabilidad Gubern
                                                    'Área II: Administración de los Organismos Públicos',
                                                    'Área III: Economía del Sector Público'))
 
+#Trabajo.label = 'Título'
+#Trabajo.label = 'Autor/es'
+#Trabajo.comment = '* obligatorio'
+#Trabajo.comment = '* obligatorio'
+
 # Plugins CKEditor
 from plugin_ckeditor import CKEditor
 import os

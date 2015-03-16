@@ -36,7 +36,10 @@ response.menu = [
      URL('pages', 'puntos_interes')),
     (SPAN(I(_class='icon-pencil icon-white'), STRONG(' Inscripción', _style='color:lightcoral')),
      False,
-     URL('default', 'form_inscripcion'))
+     URL('default', 'form_inscripcion')),
+    (SPAN(I(_class='icon-info-sign icon-white'), STRONG(' FAQ')),
+     False,
+     URL('pages', 'faq'))
 ]
 
 if auth.user:
@@ -48,5 +51,8 @@ if auth.user:
             URL(c='administracion', f='novedades', user_signature=True)),
           (SPAN(I(_class='icon-user'), STRONG(' Inscriptos')), 
             False,
-            URL(c='administracion', f='list_inscriptos', user_signature=True))])
+            URL(c='administracion', f='list_inscriptos', user_signature=True)),
+          (SPAN(I(_class='icon-tags'), STRONG(' Trabajos')), 
+            False,
+            URL(c='administracion', f='list_trabajos', user_signature=True))])
     response.menu.append(_)

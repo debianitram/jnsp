@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+<br>
+<div class='row'>
+    <div class='well well-small'>
+        <div class='row-fluid'>
+            <h2>Preguntas Frecuentes</h2>
+            <hr>
+        </div>
+        
+        {{for f in faq:}}
+            <div class='row-fluid'>
+                <legend>
+                    {{=f.titulo}}
+                </legend>
+                <div class='span8'>
+                    {{=XML(f.cuerpo)}}
+                </div>
+            </div>
+       {{pass}}
+    </div>
+</div>
