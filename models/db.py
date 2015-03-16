@@ -60,7 +60,7 @@ Trabajo = db.define_table('trabajo',
             Field('descripcion', 'text', label='Descripción'),
             format='Título: %(titulo)s, Autor: %(autor)s',
             migrate=True,
-            fake_migrate=True)
+            fake_migrate=False)
 
 Evaluacion = db.define_table('evaluacion',
             Field('evaluador_id', db.auth_user, default=auth.user_id),

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 {
 '!=': '!=',
 '!langcode!': 'es',
@@ -175,7 +175,8 @@
 'Enter an integer between %(min)g and %(max)g': 'Ingresar un entero entre %(min)g y %(max)g',
 'enter an integer between %(min)g and %(max)g': 'introduzca un entero entre %(min)g y %(max)g',
 'enter date and time as %(format)s': 'introduzca fecha y hora como %(format)s',
-'Enter date as %(format)s': 'Enter date as %(format)s',
+'Enter date as %(format)s': 'Ingrese una fecha como %(format)s',
+'enter from %(min)g to %(max)g characters': 'Campo obligatorio',
 'Enviar': 'Enviar',
 'Error logs for "%(app)s"': 'Bitácora de errores en "%(app)s"',
 'errors': 'errores',
@@ -485,8 +486,8 @@
 'View': 'Vista',
 'view': 'vista',
 'View %(entity)s': 'Ver %(entity)s',
-'Views': 'Vistas',
 'views': 'vistas',
+'Views': 'Vistas',
 'web2py is up to date': 'web2py está actualizado',
 'web2py Recent Tweets': 'Tweets Recientes de web2py',
 'Welcome': 'Bienvenido',

@@ -31,15 +31,12 @@ response.menu = [
     (SPAN(I(_class='icon-calendar icon-white'), STRONG(' Programa')),
      False,
      URL('pages', 'programa')),
-    (SPAN(I(_class='icon-briefcase icon-white'), STRONG(' Puntos de Interes')),
+    (SPAN(I(_class='icon-tags icon-white'), STRONG(' Presentar Trabajos')),
      False,
-     URL('pages', 'puntos_interes')),
+     URL('default', 'form_trabajo')),
     (SPAN(I(_class='icon-pencil icon-white'), STRONG(' Inscripción', _style='color:lightcoral')),
      False,
      URL('default', 'form_inscripcion')),
-    (SPAN(I(_class='icon-info-sign icon-white'), STRONG(' FAQ')),
-     False,
-     URL('pages', 'faq'))
 ]
 
 if auth.user:
@@ -56,3 +53,21 @@ if auth.user:
             False,
             URL(c='administracion', f='list_trabajos', user_signature=True))])
     response.menu.append(_)
+
+
+
+response.submenu = [
+    (SPAN(I(_class='icon-briefcase'), STRONG(' Hospedajes')), 
+     False,
+     URL('pages', 'puntos_interes'),
+     []),
+    (SPAN(I(_class='icon-glass'), STRONG(' Restaurant')),
+     False,
+     URL('pages', 'puntos_interes')),
+    (SPAN(I(_class='icon-camera'), STRONG(' Puntos de Interes')),
+     False,
+     URL('pages', 'puntos_interes')),
+    (SPAN(I(_class='icon-info-sign'), STRONG(' FAQ')),
+     False,
+     URL('pages', 'faq')),  
+]

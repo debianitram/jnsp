@@ -49,14 +49,21 @@ def form_inscripcion():
     return dict(form=form, windows=windows)
 
 
-def enviar_trabajo():
+def form_trabajo():
     form = SQLFORM(Trabajo)
     if form.accepts(request, session):
-        session.flash = 'Trabajo enviado'
+        session.jobid = form.vars.id
+        redirect(URL('default', 'trabajo_ok'))
+
     elif form.errors:
         session.flash = 'Controle el formulario'
         
     return dict(form=form)
+
+
+def trabajo_ok():
+    job = Trabajo(session.jobid) or redirect(URL(c='default', f='index'))
+    return dict(job=job)
 
 
 def user():

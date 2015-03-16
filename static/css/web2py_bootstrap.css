@@ -99,6 +99,10 @@ div.controls select +.error_wrapper {margin-left:5px;}
 span.highlighted{color:#d8d800;}
 .open span.highlighted{color:#ffff00;}
 
+.navbar .navcustom { min-height:22px; border-radius:0} 
+.navbar .navbar-brand .navcustom{ padding: 2px 8px;font-size: 12px;line-height: 12px; } 
+.navbar .navbar-nav .navcustom > li > a { border-right:1px solid #ddd; padding-top: 2px; padding-bottom: 2px; line-height: 12px }
+
 /*=============================================================
                  OVERRIDING WEB2PY.CSS RULES
 ==============================================================*/

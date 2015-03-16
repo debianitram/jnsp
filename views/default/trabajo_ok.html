@@ -1,0 +1,34 @@
+{{extend 'layout.html'}}
+
+
+<div class='row'>
+    <div class='span6 offset3'>
+        <div class='well'>
+            <center><h4>"Su trabajo para las XI Jornadas Nacionales de Sector Publico ha sido enviado. Muchas gracias por participar!"</h4></center>
+            <hr/>
+            <table class='table table-condensed table-bordered'>
+                <tbody>
+                    <tr>
+                        <th width="100px">Título:</th>
+                        <td>{{=job.titulo}}</td>
+                    </tr>
+                    <tr>
+                        <th>Autor/es:</th>
+                        <td>{{=job.autor}}</td>
+                    </tr>
+                    <tr>
+                        <th>Descripción:</th>
+                        <td>{{=job.descripcion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr/>
+            <div>
+                <a href="{{=URL(c='default', f='index')}}" class='btn btn-primary'>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
